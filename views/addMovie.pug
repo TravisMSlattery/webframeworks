@@ -1,0 +1,27 @@
+extends layout
+block content  
+ .container
+
+  h1 Add Movie
+  form.form-signin(action="/movies", method="post", role="form")
+    input(type="hidden", name="_csrf", value=csrf_token)
+    
+    .form-label-group Title
+      input#title.form-control(type='text' name='title' placeholder='Movie Title' required='' autofocus='' )
+      label(for='title') 
+    .form-label-group Year
+      input#year.form-control(type='text' name='year' placeholder='year' required='' )
+      label(for='year') 
+    .form-label-group Rating
+      input#rating.form-control(type='text' name='rating' placeholder='rating' required='')
+      label(for='rating') 
+    .form-label-group Descritpion
+      input#description.form-control(type='text' name='description' placeholder='description' required='')
+      label(for='description')   
+    .form-label-group Stock
+      input#stock.form-control(type='text' name='stock' placeholder='stock' required='')
+      label(for='stock')   
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Add movie
+    .my-3.text-center
+      | or 
+      a.show-signup(href="/movies") back to movies

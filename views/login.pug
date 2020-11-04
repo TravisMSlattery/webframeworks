@@ -1,0 +1,20 @@
+extends layout
+block content 
+  .container
+    h1 Login
+
+    form.form-signin(action="/users/login", method="post", role="form")
+      input(type="hidden", name="_csrf", value="")
+
+      p.col-sm-offset-2.error= message
+
+      .form-label-group Email address
+        input#email.form-control(type='email' name='email' placeholder='Email address' required='' autofocus='')
+        label(for='email') 
+      .form-label-group Password
+        input#password.form-control(type='password' name='password' placeholder='Password' required='')
+        label(for='password') 
+      button.btn.btn-lg.btn-primary.btn-block(type='submit') Log in
+      .my-3.text-center
+        | or 
+        a.show-signup(href="/users/register") Sign up

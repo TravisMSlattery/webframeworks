@@ -1,0 +1,42 @@
+extends layout
+block content
+ 
+        table.striped
+            thead
+                tr
+                    th Title
+                    th Year
+                    th Rating
+                    th Description
+                    th Stock
+            tbody
+                each movie in movies
+                    tr
+                        td  
+                            p= movie.title
+
+                        td
+                            p= movie.year
+
+                        td
+                            p= movie.rating
+                          
+                        td
+                            p= movie.description
+
+                        td
+                            p= movie.stock
+                        td
+                       
+                          a.btn.btn-float(href="/movies/rent/" + movie._id)
+                              p RENT
+                          a.btn.btn-float(href="/movies/return/" + movie._id)
+                              p RETURN
+                          form#delete-form(action='/movies/' + movie._id method='POST')
+                              input(type='hidden' name='_method' value='DELETE')
+                              button.btn.red(type='submit')
+                                  p DELETE
+
+        a.btn.btn-float(href="/movies/add")
+            p ADD MOVIE                  
+                          
